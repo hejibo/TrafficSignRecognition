@@ -70,7 +70,7 @@ public abstract class CvViewBase extends SurfaceView implements SurfaceHolder.Ca
                         }
                     }
                 }
-
+                
                 mCamera.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, mFrameWidth);
                 mCamera.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, mFrameHeight);
             }
