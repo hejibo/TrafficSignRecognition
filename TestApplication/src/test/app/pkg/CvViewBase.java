@@ -37,6 +37,7 @@ public abstract class CvViewBase extends SurfaceView implements SurfaceHolder.Ca
 	            Log.e(TAG, "Failed to open native camera");
 	            return false;
 	        }
+	        
 	    }
         return true;
     }
@@ -45,8 +46,8 @@ public abstract class CvViewBase extends SurfaceView implements SurfaceHolder.Ca
         Log.i(TAG, "releaseCamera");
         synchronized (this) {
 	        if (mCamera != null) {
-	                mCamera.release();
-	                mCamera = null;
+	            mCamera.release();
+	            mCamera = null;
             }
         }
     }
@@ -104,7 +105,7 @@ public abstract class CvViewBase extends SurfaceView implements SurfaceHolder.Ca
             synchronized (this) {
                 if (mCamera == null)
                     break;
-
+                
                 if (!mCamera.grab()) {
                     Log.e(TAG, "mCamera.grab() failed");
                     break;
@@ -117,7 +118,7 @@ public abstract class CvViewBase extends SurfaceView implements SurfaceHolder.Ca
                 Canvas canvas = mHolder.lockCanvas();
                 if (canvas != null) {
                     canvas.drawBitmap(bmp, (canvas.getWidth() - bmp.getWidth()) / 2, (canvas.getHeight() - bmp.getHeight()) / 2, null);
-                    mHolder.unlockCanvasAndPost(canvas);
+                    mHolder.unlockCanvasAndPost(canvas);     	
                 }
                 bmp.recycle();
             }
